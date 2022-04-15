@@ -13,7 +13,6 @@ class Menu extends Component {
 onDishSelected(dish) {
     this.setState({ selectedDish: dish });
 }
-
 renderDish(dish) {
     if (dish != null) {
         return (
@@ -58,5 +57,4 @@ renderDish(dish) {
         );
     }
 }
-
 export default Menu;

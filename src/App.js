@@ -12,6 +12,7 @@ constructor(props) {
       dishes: DISHES
     };
   }
+
 render() {
 return (
     <div>
@@ -25,6 +26,5 @@ return (
   );
 }
 }
-
 
 export default App;
