@@ -1,4 +1,4 @@
-import './App.css';
+import '../App.css';
 import {Navbar, NavbarBrand} from 'reactstrap';
 import Menu from './MenuComponents';
 import { DISHES } from '../shared/dishes';
@@ -9,7 +9,7 @@ class Main extends Component {
 constructor(props) {
     super(props);
     this.state = {
-      dishes: DISHES
+      dishes: DISHES,
       selectedDish: null
     };
   }
