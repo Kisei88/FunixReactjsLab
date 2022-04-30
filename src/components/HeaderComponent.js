@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, useState,useEffect } from 'react';
 import {Navbar, NavbarBrand, Nav, NavbarToggler, NavItem, Collapse, Jumbotron} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
+
 
 class Header extends Component {
 
@@ -63,5 +64,7 @@ class Header extends Component {
         );
     }
 }
+    
+
 
 export default Header;
