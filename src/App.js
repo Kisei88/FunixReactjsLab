@@ -2,9 +2,8 @@ import './App.css';
 import Main from './components/MainComponent';
 import React, {Component} from 'react'
 import { BrowserRouter } from 'react-router-dom'
-class App extends Component {
 
-  render() {
+function App() {
 return (
     <BrowserRouter>
       <div>
@@ -13,6 +12,6 @@ return (
     </BrowserRouter>
   );
 }
-}
+
 
 export default App;

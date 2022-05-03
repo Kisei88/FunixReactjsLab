@@ -1,5 +1,5 @@
 import '../App.css';
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import Menu from './MenuComponents';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
@@ -12,25 +12,31 @@ import { PROMOTIONS } from '../shared/promotions';
 import DishDetail from './DishDetailComponent';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-class Main extends Component {
-constructor(props) {
-    super(props);
-    this.state = {
-      dishes: DISHES,
-      comments: COMMENTS,
-      promotions: PROMOTIONS,
-      leaders:LEADERS,
-    };
-  }
-render() {
+function Main() {
+  const [dishes] = useState(DISHES)
+  const [comments] = useState(COMMENTS)
+  const [promotions] = useState(PROMOTIONS)
+  const [leaders] = useState(LEADERS)
+
+// class Main extends Component {
+// constructor(props) {
+//     super(props);
+//     this.state = {
+//       dishes: DISHES,
+//       comments: COMMENTS,
+//       promotions: PROMOTIONS,
+//       leaders:LEADERS,
+//     };
+//   }
+// render() {
   const HomePage = () => {
     return (
       <Home 
-      dish = {this.state.dishes.filter((dish) => dish.featured)[0]}
+      dish = {dishes.filter((dish) => dish.featured)[0]}
 
-      promotion = {this.state.promotions.filter((promo) => promo.featured)[0]}
+      promotion = {promotions.filter((promo) => promo.featured)[0]}
 
-      leader = {this.state.leaders.filter((leader) => leader.featured)[0]}
+      leader = {leaders.filter((leader) => leader.featured)[0]}
       />
     )
   }
@@ -38,9 +44,9 @@ render() {
   const DishWithId = ({match}) => {
     return(
       <DishDetail 
-      dish = {this.state.dishes.filter((dish) => dish.id === parseInt(match.params.dishId, 10))[0]}
+      dish = {dishes.filter((dish) => dish.id === parseInt(match.params.dishId, 10))[0]}
 
-      comments = {this.state.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId, 10))}
+      comments = {comments.filter((comment) => comment.dishId === parseInt(match.params.dishId, 10))}
       />
     )
   }
@@ -49,7 +55,7 @@ return (
         <Header />
         <Switch>
           <Route path = '/home' component = {HomePage}/>
-          <Route exact path = '/menu' component = {() => <Menu dishes = {this.state.dishes}/>} />
+          <Route exact path = '/menu' component = {() => <Menu dishes = {dishes}/>} />
           <Route path = '/menu/:dishId' component = {DishWithId} />
           <Route path = '/contactus' component = {Contact} />
           <Redirect to ='/home' />
@@ -58,6 +64,6 @@ return (
     </div>
   );
 }
-}
+// }
 
 export default Main;

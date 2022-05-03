@@ -1,6 +1,6 @@
 import React, { Component, useState,useEffect } from 'react';
 import {Navbar, NavbarBrand, Nav, NavbarToggler, NavItem, Collapse, Jumbotron} from 'reactstrap';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 
 
 class Header extends Component {
@@ -27,9 +27,9 @@ class Header extends Component {
                         <Collapse isOpen = {this.state.isNavOpen} navbar>
                             <Nav navbar>
                                 <NavItem>
-                                    <NavLink className = 'nav-link' to = '/home'>
+                                    <Link className = 'nav-link' to = '/home'>
                                         <span className = 'fa fa-home fa-lg'></span> Home
-                                    </NavLink>
+                                    </Link>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className = 'nav-link' to = '/aboutus'>
