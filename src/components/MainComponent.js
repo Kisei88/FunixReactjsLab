@@ -5,6 +5,7 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
+import About from './AboutComponent';
 import { DISHES } from '../shared/dishes';
 import { COMMENTS } from '../shared/comments';
 import { LEADERS } from '../shared/leaders';
@@ -12,11 +13,11 @@ import { PROMOTIONS } from '../shared/promotions';
 import DishDetail from './DishDetailComponent';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-function Main() {
+export default function Main() {
   const [dishes] = useState(DISHES)
   const [comments] = useState(COMMENTS)
   const [promotions] = useState(PROMOTIONS)
-  const [leaders] = useState(LEADERS)
+  const [leaders,setLeaders] = useState(LEADERS)
 
 // class Main extends Component {
 // constructor(props) {
@@ -55,6 +56,7 @@ return (
         <Header />
         <Switch>
           <Route path = '/home' component = {HomePage}/>
+          <Route path = '/aboutus' component = {() => <About leaders = {leaders}/>}/>
           <Route exact path = '/menu' component = {() => <Menu dishes = {dishes}/>} />
           <Route path = '/menu/:dishId' component = {DishWithId} />
           <Route path = '/contactus' component = {Contact} />
@@ -64,6 +66,5 @@ return (
     </div>
   );
 }
-// }
 
-export default Main;
+// export default Main

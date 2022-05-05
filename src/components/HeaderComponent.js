@@ -27,9 +27,9 @@ class Header extends Component {
                         <Collapse isOpen = {this.state.isNavOpen} navbar>
                             <Nav navbar>
                                 <NavItem>
-                                    <Link className = 'nav-link' to = '/home'>
+                                    <NavLink className = 'nav-link' to = '/home'>
                                         <span className = 'fa fa-home fa-lg'></span> Home
-                                    </Link>
+                                    </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className = 'nav-link' to = '/aboutus'>
