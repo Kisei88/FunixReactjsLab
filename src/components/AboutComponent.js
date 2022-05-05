@@ -1,24 +1,19 @@
 import React, {useState} from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { LEADERS } from '../shared/leaders';
 
 
 export default function About(props) {
-    // const leaders = { LEADERS }
     const RenderLeaders = props.leaders.map((leader) => {
-        console.log(RenderLeaders)
-    // const leaders = useState(LEADERS)
-    // const RenderLeaders = leaders.map((leader) => {
         return (  
         <div>
-           <div key = {leader.id} className = 'col-12 mt-5'>
-                    <Media tag = 'li'>
+           <div className = 'col-12 mt-5'>
+                    <Media tag = 'li' key = {leader.id}>
                         <Media left>
                                 <Media object src = {leader.image} alt = {leader.name}/>
                         </Media>
                         <Media body className = 'ml-5'>
-                            <Media heading><h2>{leader.name}</h2></Media>
+                            <Media><h2>{leader.name}</h2></Media>
                             <h5>{leader.designation}</h5>
                             <p>{leader.description}</p>
                         </Media>
