@@ -1,5 +1,5 @@
 import '../App.css';
-import React, {Component, useState} from 'react';
+import React, { useState } from 'react';
 import Menu from './MenuComponents';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
@@ -19,20 +19,9 @@ export default function Main() {
   const [promotions] = useState(PROMOTIONS)
   const [leaders,setLeaders] = useState(LEADERS)
 
-// class Main extends Component {
-// constructor(props) {
-//     super(props);
-//     this.state = {
-//       dishes: DISHES,
-//       comments: COMMENTS,
-//       promotions: PROMOTIONS,
-//       leaders:LEADERS,
-//     };
-//   }
-// render() {
   const HomePage = () => {
     return (
-      <Home 
+      <Home
       dish = {dishes.filter((dish) => dish.featured)[0]}
 
       promotion = {promotions.filter((promo) => promo.featured)[0]}
@@ -44,9 +33,8 @@ export default function Main() {
 
   const DishWithId = ({match}) => {
     return(
-      <DishDetail 
+      <DishDetail
       dish = {dishes.filter((dish) => dish.id === parseInt(match.params.dishId, 10))[0]}
-
       comments = {comments.filter((comment) => comment.dishId === parseInt(match.params.dishId, 10))}
       />
     )
