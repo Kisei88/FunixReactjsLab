@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Breadcrumb, BreadcrumbItem, Button, FormGroup, Form, Label, Input, Col } from 'reactstrap'
+import { Breadcrumb, BreadcrumbItem, Button, FormGroup, Form, FormFeedback, Label, Input, Col } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
 class Contact extends Component {
@@ -15,6 +15,12 @@ class Contact extends Component {
             agree: false,
             contactType: 'Tel.',
             message: '',
+            touched: {
+                firstname: false,
+                lastname: false,
+                telnum: false,
+                email: false,
+            }
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -38,7 +44,7 @@ class Contact extends Component {
                 touched: { ...this.state.touched, [field]: true }
             });
         }
-        validate(firstname, lastname, telnum, email) {
+    validate(firstname, lastname, telnum, email) {
             const errors = {
                 firstname: '',
                 lastname: '',
@@ -46,8 +52,8 @@ class Contact extends Component {
                 email: ''
             };
     
-            if (this.state.touched.firstname && firstname.length < 3)
-                errors.firstname = 'First Name should be >= 3 characters';
+            if (this.state.touched.firstname && firstname.length < 2)
+                errors.firstname = 'First Name should be >= 2 characters';
             else if (this.state.touched.firstname && firstname.length > 10)
                 errors.firstname = 'First Name should be <= 10 characters';
     
@@ -135,7 +141,7 @@ class Contact extends Component {
                             <FormGroup row>
                                 <Label htmlFor='telnum' md = {2}>Contact Tel.</Label>
                                 <Col md = {10}>
-                                    <Input type = 'number' id = 'telnum' name = 'telnum' placeholder = 'Tel. Number' value = {this.state.telnum} valid={errors.telnum === ''}
+                                    <Input type = 'text' id = 'telnum' name = 'telnum' placeholder = 'Tel. Number' value = {this.state.telnum} valid={errors.telnum === ''}
                                         invalid={errors.telnum !== ''}
                                         onBlur={this.handleBlur('telnum')} onChange = {this.handleInputChange}/>
                                     <FormFeedback>{errors.telnum}</FormFeedback>
@@ -154,7 +160,7 @@ class Contact extends Component {
                                 <Col md = {{size: 6, offset: 2}}>
                                     <FormGroup check>
                                         <Label check>
-                                            <Input type = 'checkbox' name = 'agree' value = {this.state.agree} onChange = {this.handleInputChange}/>{' '}
+                                            <Input type = 'radio' name = 'agree' value = {this.state.agree} onChange = {this.handleInputChange}/>{' '}
                                             <strong>May We Contact You?</strong>
                                         </Label>
                                     </FormGroup>
