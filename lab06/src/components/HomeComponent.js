@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle} from 'reactstrap';
 
+
 function RenderCard ({item}) {
     return (
         <Card>
@@ -10,7 +11,6 @@ function RenderCard ({item}) {
                 {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle>: null}
                 <CardText>{item.description}</CardText>
             </CardBody>
-
         </Card>
     )
 }
