@@ -8,7 +8,8 @@ const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => (val) && (val.length >= len);
 const isNumber = (val) => !isNaN(Number(val));
-const validEmail = (val) => /^[A-Z0-9_%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+const mailRegExp = /^[A-Z0-9_%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+const validEmail = (val) => mailRegExp.test(val);
 
 class Contact extends Component {
 
@@ -101,10 +102,10 @@ class Contact extends Component {
                                 <Label htmlFor='firstname' md = {2}>FirstName</Label>
                                 <Col md = {10}>
                                     <Control.text model = '.firstname' id = 'firstname' name = 'firstname' placeholder = 'First Name' className = 'form-control' 
-                                    validators ={{
+                                    validator ={{
                                         required, minLength: minLength(2), maxLength: maxLength(15)
                                     }}/>
-                                    <Errors className = 'text.danger' model = '.firstname' show = 'touch' 
+                                    <Errors className = 'text-danger' model = '.firstname' show = 'touched' 
                                         message = {{
                                             required: 'Please enter your name',
                                             minLength: 'Must be at least 2 charaters',
@@ -119,7 +120,7 @@ class Contact extends Component {
                                     validator ={{
                                         required, minLength: minLength(2), maxLength: maxLength(15)
                                     }}/>
-                                    <Errors className = 'text.danger' model = '.lastname' show = 'touch' 
+                                    <Errors className = 'text-danger' model = '.lastname' show = 'touched' 
                                         message = {{
                                             required: 'Please enter your lastname',
                                             minLength: 'Must be at least 2 charaters',
@@ -134,7 +135,7 @@ class Contact extends Component {
                                     validator ={{
                                         required, minLength: minLength(8), maxLength: maxLength(15), isNumber
                                     }}/>
-                                    <Errors className = 'text.danger' model = '.telnum' show = 'touch' 
+                                    <Errors className = 'text-danger' model = '.telnum' show = {{touched:true, focus: false}} 
                                         message = {{
                                             required: 'Required',
                                             minLength: 'Must be at least 8 numbers',
@@ -150,7 +151,7 @@ class Contact extends Component {
                                      validator ={{
                                         required, validEmail
                                     }}/>
-                                    <Errors className = 'text.danger' model = '.email' show = 'touch' 
+                                    <Errors outline className = 'text-danger' model = '.email' show = 'touched' 
                                         message = {{
                                             required: 'Required',
                                             validEmail: 'Please enter valid email address',
