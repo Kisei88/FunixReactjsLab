@@ -135,7 +135,7 @@ class Contact extends Component {
                                     validator ={{
                                         required, minLength: minLength(8), maxLength: maxLength(15), isNumber
                                     }}/>
-                                    <Errors className = 'text-danger' model = '.telnum' show = {{touched:true, focus: false}} 
+                                    <Errors className = 'text-danger' model = '.telnum' show = 'touched'
                                         message = {{
                                             required: 'Required',
                                             minLength: 'Must be at least 8 numbers',
@@ -162,7 +162,7 @@ class Contact extends Component {
                                 <Col md = {{size: 6, offset: 2}}>
                                     <div className = 'form-check'>
                                         <Label check>
-                                            <Control.radio model = '.agree' name = 'agree' className = 'form-check-input' />{' '}
+                                            <Control.checkbox model = '.agree' name = 'agree' className = 'form-check-input' />{' '}
                                             <strong>May We Contact You?</strong>
                                         </Label>
                                     </div>
