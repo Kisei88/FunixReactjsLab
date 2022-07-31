@@ -1,5 +1,5 @@
 import '../App.css';
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import Menu from './MenuComponents';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
@@ -24,7 +24,7 @@ class Main extends Component {
   // constructor(props) {
   //   super(props);
   // }
-  // const [dishes] = useState(DISHES)
+    // const [dishes] = useState(DISHES)
   // const [comments] = useState(COMMENTS)
   // const [promotions] = useState(PROMOTIONS)
   // const [leaders,setLeaders] = useState(LEADERS)

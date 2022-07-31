@@ -1,6 +1,8 @@
 import React from "react";
-import { Card, CardImg, CardText, CardBody, CardTitle,Breadcrumb, BreadcrumbItem} from "reactstrap";
-import { Link } from 'react-router-dom'
+import { Card, CardImg, CardText, CardBody, CardTitle,Breadcrumb, BreadcrumbItem } from "reactstrap";
+import { Link } from 'react-router-dom';
+import AddComment from './Comment(controlledform)';
+
 
 function RenderDish({dish}) {
     return (
@@ -15,6 +17,12 @@ function RenderDish({dish}) {
       </div>
     );
   };
+ 
+// function RenderCommentForm (form) {
+//   return (
+//     <Button outline className = 'fa fa-pencil fa-lg' color = 'success' onClick={() => AddComment()}> Submit Comment </Button>
+//   )
+// }
 
 function RenderComments({comments}) {
     if (comments != null) {
@@ -33,6 +41,10 @@ function RenderComments({comments}) {
               );
             })}
           </ul>
+          <div className = 'row'>
+          {/* <Button className = 'fa fa-pencil fa-lg' color = 'success' onClick = {CommentForm}> Submit Comment </Button> */}
+          <AddComment/>
+          </div>
         </div>
       );
     } else {
